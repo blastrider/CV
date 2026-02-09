@@ -42,6 +42,7 @@ body[data-theme="dark"] {
 body {
   margin: 0;
   font-family: "IBM Plex Sans", sans-serif;
+  position: relative;
   background: radial-gradient(
     circle at top left,
     var(--page-glow-start) 0%,
@@ -50,6 +51,7 @@ body {
   );
   color: var(--ink);
   line-height: 1.6;
+  overflow-x: hidden;
 }
 
 .sprite {
@@ -59,6 +61,58 @@ body {
   overflow: hidden;
 }
 
+.geo-bg {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.6;
+  filter: contrast(1.1);
+}
+
+.invader-field {
+  transform: translate(var(--gx, 0px), var(--gy, 0px));
+  transition: transform 0.12s linear;
+}
+
+.invader-row {
+  animation: invaderSweep 18s ease-in-out infinite alternate;
+}
+
+.invader-row:nth-child(2) {
+  animation-duration: 22s;
+  animation-delay: -6s;
+}
+
+.invader-row:nth-child(3) {
+  animation-duration: 20s;
+  animation-delay: -10s;
+}
+
+.invader-row:nth-child(4) {
+  animation-duration: 24s;
+  animation-delay: -8s;
+}
+
+.invader {
+  fill: rgba(255, 185, 139, 0.55);
+  animation: invaderBlink 4s steps(2, end) infinite;
+}
+
+.invader-row:nth-child(even) .invader {
+  fill: rgba(125, 142, 149, 0.45);
+}
+
+body[data-theme="dark"] .invader {
+  fill: rgba(251, 224, 195, 0.35);
+}
+
+body[data-theme="dark"] .invader-row:nth-child(even) .invader {
+  fill: rgba(255, 185, 139, 0.4);
+}
+
 .page {
   max-width: 1100px;
   margin: 0 auto;
@@ -66,6 +120,8 @@ body {
   display: grid;
   gap: 28px;
   transition: gap 0.25s ease, padding 0.25s ease;
+  position: relative;
+  z-index: 1;
 }
 
 .hero {
@@ -245,6 +301,63 @@ body[data-theme="dark"] .theme-toggle button {
   transition: padding 0.25s ease, font-size 0.25s ease;
 }
 
+.game-card {
+  display: grid;
+  gap: 12px;
+}
+
+.game-hint {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+.game-wrap {
+  display: grid;
+  gap: 12px;
+}
+
+.game-canvas {
+  width: 100%;
+  max-width: 560px;
+  aspect-ratio: 3 / 2;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  background: rgba(52, 70, 72, 0.08);
+  box-shadow: inset 0 0 0 1px rgba(255, 185, 139, 0.12);
+}
+
+.game-ui {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+}
+
+.game-ui button {
+  border: none;
+  background: var(--accent);
+  color: var(--deep);
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 0.85rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 8px 14px;
+  border-radius: 999px;
+  cursor: pointer;
+}
+
+.game-ui button[data-game-action="reset"] {
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--ink);
+}
+
+.game-stat {
+  font-weight: 600;
+  color: var(--muted);
+}
+
 .logo-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
@@ -291,6 +404,25 @@ body[data-theme="dark"] .theme-toggle button {
   }
 }
 
+@keyframes invaderSweep {
+  from {
+    transform: translateX(-24px);
+  }
+  to {
+    transform: translateX(24px);
+  }
+}
+
+@keyframes invaderBlink {
+  0%,
+  100% {
+    opacity: 0.75;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
 body[data-density="compact"] .page {
   gap: 18px;
   padding: 36px 20px 56px;
@@ -332,6 +464,12 @@ body[data-density="compact"] .logo-card {
   *::after {
     animation: none !important;
     transition: none !important;
+  }
+
+  .invader-field,
+  .invader-row,
+  .invader {
+    animation: none !important;
   }
 }
 
