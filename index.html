@@ -426,7 +426,12 @@
             <li>Outil Rust d’alerte Zabbix pour Linux Mint.</li>
             <li>Automatisations IaC avec OpenTofu, Ansible et Packer.</li>
             <li>Création de services systemd pour applications internes.</li>
-            <li>Outil personnel “describe_me” (lien GitHub à ajouter).</li>
+            <li>
+              Outil personnel “describe_me”
+              <a href="https://github.com/blastrider/describe_me" target="_blank" rel="noopener">
+                github.com/blastrider/describe_me
+              </a>
+            </li>
           </ul>
         </div>
 
@@ -544,7 +549,7 @@
           running: false,
           width: canvas.width,
           height: canvas.height,
-          player: { x: 0, y: 0, w: 36, h: 14, speed: 280 },
+          player: { x: 0, y: 0, w: 32, h: 12, speed: 300 },
           bullets: [],
           invaders: [],
           invaderDir: 1,
@@ -557,6 +562,16 @@
           lives: 3,
           level: 1,
           lastTime: 0,
+        };
+
+        const scaleGame = () => {
+          const scale = Math.max(0.75, Math.min(game.width / 520, 1));
+          game.player.w = 32 * scale;
+          game.player.h = 12 * scale;
+          game.player.speed = 300 * scale + 120;
+          game.invaderSpeed = 22 * scale + 10;
+          game.invaderDrop = 12 * scale + 6;
+          game.bulletSpeed = 360 * scale + 120;
         };
 
         const clamp = (value, min, max) => Math.min(Math.max(value, min), max);
@@ -579,6 +594,7 @@
           ctx.setTransform(ratio, 0, 0, ratio, 0, 0);
           game.width = rect.width;
           game.height = rect.height;
+          scaleGame();
           resetPlayer();
           buildInvaders();
         };
@@ -590,9 +606,10 @@
 
         const buildInvaders = () => {
           const rows = 4;
-          const cols = 8;
-          const invader = { w: 20, h: 14 };
-          const gap = 12;
+          const cols = game.width > 520 ? 11 : 9;
+          const scale = Math.max(0.7, Math.min(game.width / 520, 1));
+          const invader = { w: 14 * scale, h: 10 * scale };
+          const gap = 10 * scale;
           const totalWidth = cols * invader.w + (cols - 1) * gap;
           const startX = (game.width - totalWidth) / 2;
           const startY = 34;
