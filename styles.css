@@ -292,6 +292,54 @@ body[data-theme="dark"] .theme-toggle button {
   gap: 10px;
 }
 
+.skills-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: nowrap;
+}
+
+.skills-header h2 {
+  margin: 0;
+  flex: 1 1 auto;
+}
+
+.skills-toggle {
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--ink);
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 1.2rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0;
+  border-radius: 999px;
+  cursor: pointer;
+  min-height: 44px;
+  min-width: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.skills-card[data-skills-collapsed="true"] .tag-list {
+  display: none;
+}
+
+.skills-card[data-skills-collapsed="true"] .skill-group {
+  gap: 0;
+}
+
+.skill-group {
+  display: grid;
+  gap: 8px;
+}
+
+.skill-group + .skill-group {
+  margin-top: 12px;
+}
+
 .tag-list li {
   background: rgba(255, 185, 139, 0.3);
   color: var(--accent-strong);

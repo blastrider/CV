@@ -287,21 +287,67 @@
           </p>
         </div>
 
-        <div class="card">
-          <h2>Compétences clés</h2>
-          <ul class="tag-list">
-            <li>Linux (Debian, Linux Mint)</li>
-            <li>Windows Server / Active Directory</li>
-            <li>FreeBSD</li>
-            <li>DevOps & CI/CD</li>
-            <li>Azure DevOps, MKS</li>
-            <li>Packaging DEB/RPM</li>
-            <li>Systemd</li>
-            <li>OpenTofu, Ansible, Packer</li>
-            <li>QEMU/KVM</li>
-            <li>Zabbix</li>
-            <li>Rust</li>
-          </ul>
+        <div class="card skills-card" data-skills-collapsed="false">
+          <div class="skills-header">
+            <h2>Compétences clés</h2>
+            <button
+              type="button"
+              class="skills-toggle"
+              data-skills-toggle
+              aria-expanded="true"
+              aria-label="Masquer les technos"
+            >
+              -
+            </button>
+          </div>
+          <div class="skill-group">
+            <h3>Systèmes</h3>
+            <ul class="tag-list">
+              <li>Ubuntu (Server/Desktop)</li>
+              <li>Debian (Server/Desktop)</li>
+              <li>Rocky Linux (Server/Desktop)</li>
+              <li>Manjaro (Desktop)</li>
+              <li>Linux Mint (Desktop)</li>
+              <li>FreeBSD (Server/Desktop)</li>
+              <li>Windows Server / Active Directory</li>
+            </ul>
+          </div>
+          <div class="skill-group">
+            <h3>Virtualisation & stockage</h3>
+            <ul class="tag-list">
+              <li>Proxmox</li>
+              <li>QEMU/KVM</li>
+              <li>ZFS</li>
+              <li>Ceph</li>
+            </ul>
+          </div>
+          <div class="skill-group">
+            <h3>DevOps & plateformes</h3>
+            <ul class="tag-list">
+              <li>DevOps & CI/CD</li>
+              <li>Azure DevOps</li>
+              <li>MKS</li>
+              <li>Docker</li>
+              <li>Kubernetes</li>
+            </ul>
+          </div>
+          <div class="skill-group">
+            <h3>Automatisation & packaging</h3>
+            <ul class="tag-list">
+              <li>OpenTofu</li>
+              <li>Ansible</li>
+              <li>Packer</li>
+              <li>Systemd</li>
+              <li>Packaging DEB/RPM</li>
+            </ul>
+          </div>
+          <div class="skill-group">
+            <h3>Observabilité & dev</h3>
+            <ul class="tag-list">
+              <li>Zabbix</li>
+              <li>Rust</li>
+            </ul>
+          </div>
         </div>
 
         <div class="card">
@@ -356,6 +402,7 @@
             <li>DevOps chez OVH (MKS) et Azure DevOps, mise en place de pratiques CI/CD.</li>
             <li>Packaging DEB/RPM, création de services systemd.</li>
             <li>Infrastructure as Code avec OpenTofu, Ansible et Packer.</li>
+            <li>Virtualisation et stockage: Proxmox, ZFS, Ceph.</li>
             <li>Développement Rust (vibe coding) avec un dépôt dédié.</li>
             <li>Deux programmes internes, dont un outil d’alerting Zabbix sous Linux Mint.</li>
           </ul>
@@ -374,6 +421,7 @@
             <li>Installation et MCO/MCS de BigBlueButton (monitoring, sauvegardes).</li>
             <li>Déploiement de machines QEMU/KVM sous Debian.</li>
             <li>Administration et durcissement Debian.</li>
+            <li>FreeBSD + ZFS pour stockage de sauvegardes avec rsync.</li>
             <li>Gestion de matériels audiovisuels (rétroprojecteurs, prise de son).</li>
           </ul>
         </article>
@@ -460,6 +508,29 @@
             localStorage.setItem("density", density);
           });
         });
+
+        const skillsToggle = document.querySelector("[data-skills-toggle]");
+        const skillsCard = document.querySelector(".skills-card");
+        if (skillsToggle && skillsCard) {
+          const storedSkills = localStorage.getItem("skillsCollapsed") === "true";
+          if (storedSkills) {
+            skillsCard.dataset.skillsCollapsed = "true";
+            skillsToggle.setAttribute("aria-expanded", "false");
+            skillsToggle.setAttribute("aria-label", "Afficher les technos");
+            skillsToggle.textContent = "+";
+          }
+          skillsToggle.addEventListener("click", () => {
+            const collapsed = skillsCard.dataset.skillsCollapsed === "true";
+            skillsCard.dataset.skillsCollapsed = collapsed ? "false" : "true";
+            skillsToggle.setAttribute("aria-expanded", String(collapsed));
+            skillsToggle.setAttribute(
+              "aria-label",
+              collapsed ? "Masquer les technos" : "Afficher les technos"
+            );
+            skillsToggle.textContent = collapsed ? "-" : "+";
+            localStorage.setItem("skillsCollapsed", String(!collapsed));
+          });
+        }
 
         const canvas = document.getElementById("invaderGame");
         if (!canvas) {
