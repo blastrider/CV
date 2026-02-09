@@ -216,6 +216,15 @@ body[data-theme="dark"] .theme-toggle button {
   transition: padding 0.25s ease, border-radius 0.25s ease, background 0.25s ease;
 }
 
+.card:hover h1,
+.card:hover h2 {
+  color: var(--accent);
+}
+
+.hero:hover h1 {
+  color: var(--accent);
+}
+
 .tag-list {
   list-style: none;
   padding: 0;
