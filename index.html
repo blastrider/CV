@@ -404,7 +404,8 @@
         <div class="card game-card">
           <h2>Mini-jeu Space Invaders</h2>
           <p class="game-hint">
-            Flèches gauche/droite pour bouger, Espace pour tirer.
+            Mobile: tap pour tirer, glisser gauche/droite pour déplacer. Clavier:
+            flèches gauche/droite + Espace.
           </p>
           <div class="game-wrap">
             <canvas
@@ -472,6 +473,8 @@
         const livesEl = document.querySelector("[data-game-lives]");
 
         const keys = new Set();
+        const pointer = { active: false, startX: 0, lastX: 0, moved: false };
+        const tapThreshold = 6;
         let gameOver = false;
 
         const game = {
@@ -494,6 +497,11 @@
         };
 
         const clamp = (value, min, max) => Math.min(Math.max(value, min), max);
+        const setPlayerFromPointer = (clientX) => {
+          const rect = canvas.getBoundingClientRect();
+          const x = clientX - rect.left;
+          game.player.x = clamp(x - game.player.w / 2, 8, game.width - game.player.w - 8);
+        };
 
         const syncScore = () => {
           scoreEl.textContent = String(game.score);
@@ -576,6 +584,9 @@
         };
 
         const update = (dt) => {
+          if (pointer.active && pointer.moved) {
+            setPlayerFromPointer(pointer.lastX);
+          }
           if (keys.has("ArrowLeft")) {
             game.player.x -= game.player.speed * dt;
           }
@@ -731,12 +742,49 @@
           resetGame();
         });
 
-        canvas.addEventListener("click", () => {
+        canvas.addEventListener("pointerdown", (event) => {
+          canvas.setPointerCapture(event.pointerId);
+          pointer.active = true;
+          pointer.startX = event.clientX;
+          pointer.lastX = event.clientX;
+          pointer.moved = false;
           if (gameOver) {
             resetGame();
           }
-          game.running = true;
-          toggleBtn.textContent = "Pause";
+          if (!game.running) {
+            game.running = true;
+            toggleBtn.textContent = "Pause";
+          }
+          event.preventDefault();
+        });
+
+        canvas.addEventListener("pointermove", (event) => {
+          if (!pointer.active) {
+            return;
+          }
+          pointer.lastX = event.clientX;
+          if (Math.abs(pointer.lastX - pointer.startX) > tapThreshold) {
+            pointer.moved = true;
+          }
+          setPlayerFromPointer(pointer.lastX);
+          event.preventDefault();
+        });
+
+        canvas.addEventListener("pointerup", (event) => {
+          if (!pointer.active) {
+            return;
+          }
+          if (!pointer.moved) {
+            fire();
+          }
+          pointer.active = false;
+          pointer.moved = false;
+          event.preventDefault();
+        });
+
+        canvas.addEventListener("pointercancel", () => {
+          pointer.active = false;
+          pointer.moved = false;
         });
 
         window.addEventListener("keydown", (event) => {
