@@ -1,0 +1,363 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Maxime Guillemin — CV</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <svg class="sprite" aria-hidden="true">
+      <symbol id="icon-user" viewBox="0 0 24 24">
+        <path
+          d="M12 13.2c2.6 0 4.7-2.2 4.7-4.9S14.6 3.4 12 3.4 7.3 5.6 7.3 8.3s2.1 4.9 4.7 4.9z"
+        />
+        <path
+          d="M4.4 20.6c0-3.4 3.5-5.7 7.6-5.7s7.6 2.3 7.6 5.7"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.6"
+          stroke-linecap="round"
+        />
+      </symbol>
+      <symbol id="icon-location" viewBox="0 0 24 24">
+        <path
+          d="M12 21s6.4-6 6.4-11a6.4 6.4 0 1 0-12.8 0c0 5 6.4 11 6.4 11z"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.6"
+        />
+        <circle cx="12" cy="10" r="2.6" />
+      </symbol>
+      <symbol id="icon-phone" viewBox="0 0 24 24">
+        <path
+          d="M6.1 4.2l3 1.2-.8 3.2 2.9 2.9 3.2-.8 1.2 3c-2.4 2.6-6.2 2.8-8.9.2-2.7-2.7-2.4-6.5.2-9z"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.6"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+      </symbol>
+      <symbol id="icon-mail" viewBox="0 0 24 24">
+        <path
+          d="M4.5 7h15a1.5 1.5 0 0 1 1.5 1.5v7A1.5 1.5 0 0 1 19.5 17h-15A1.5 1.5 0 0 1 3 15.5v-7A1.5 1.5 0 0 1 4.5 7z"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.6"
+        />
+        <path
+          d="M4.5 8.5l7.5 5 7.5-5"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.6"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+      </symbol>
+      <symbol id="icon-car" viewBox="0 0 24 24">
+        <path
+          d="M4.5 12.5l1.6-4.2h11.8l1.6 4.2"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.6"
+          stroke-linecap="round"
+        />
+        <rect x="3.5" y="12.5" width="17" height="5" rx="1.2" />
+        <circle cx="7" cy="18.5" r="1.3" />
+        <circle cx="17" cy="18.5" r="1.3" />
+      </symbol>
+      <symbol id="icon-linux" viewBox="0 0 24 24">
+        <path
+          d="M8.2 9.3c0-2 1.7-3.7 3.8-3.7s3.8 1.7 3.8 3.7-1.7 3.7-3.8 3.7-3.8-1.7-3.8-3.7z"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.6"
+        />
+        <path
+          d="M6.4 18.2c1.5-2.4 3.4-3.6 5.6-3.6s4.1 1.2 5.6 3.6"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.6"
+          stroke-linecap="round"
+        />
+      </symbol>
+      <symbol id="icon-windows" viewBox="0 0 24 24">
+        <path d="M3.5 5.3l7.4-1v7.4H3.5z" />
+        <path d="M13.1 4l7.4-1.1v8.8h-7.4z" />
+        <path d="M3.5 12.1h7.4v7.2l-7.4-1z" />
+        <path d="M13.1 12.1h7.4v8.9l-7.4-1.2z" />
+      </symbol>
+      <symbol id="icon-cloud" viewBox="0 0 24 24">
+        <path
+          d="M6.2 16.6a3.8 3.8 0 0 1 .3-7.6A5.3 5.3 0 0 1 17 9.9a3.5 3.5 0 1 1 .4 6.9z"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.6"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+      </symbol>
+      <symbol id="icon-automation" viewBox="0 0 24 24">
+        <path
+          d="M7 6.2h10M7 11.2h10M7 16.2h6"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.6"
+          stroke-linecap="round"
+        />
+        <circle cx="17.5" cy="16.2" r="2.1" />
+      </symbol>
+      <symbol id="icon-devops" viewBox="0 0 24 24">
+        <path
+          d="M8 6.5l-3.5 3.6L8 13.7"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.6"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+        <path
+          d="M16 6.5l3.5 3.6-3.5 3.6"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.6"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+        <path
+          d="M10.5 16.5l3-9"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.6"
+          stroke-linecap="round"
+        />
+      </symbol>
+      <symbol id="icon-server" viewBox="0 0 24 24">
+        <rect x="4.2" y="4.6" width="15.6" height="5.6" rx="1.4" />
+        <rect x="4.2" y="12" width="15.6" height="7.4" rx="1.4" />
+        <circle cx="8" cy="7.4" r="0.9" />
+        <circle cx="8" cy="15.6" r="0.9" />
+      </symbol>
+      <symbol id="icon-code" viewBox="0 0 24 24">
+        <path
+          d="M8.5 7.2L4.5 12l4 4.8M15.5 7.2l4 4.8-4 4.8"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.6"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+      </symbol>
+    </svg>
+    <main class="page">
+      <header class="hero">
+        <div class="hero__identity">
+          <p class="hero__eyebrow">Administrateur systèmes & réseaux • DevOps</p>
+          <h1>Maxime Guillemin</h1>
+          <p class="hero__summary">
+            Professionnel entreprenant et tenace, particulièrement à l’aise en
+            debug et en résolution de problèmes complexes.
+          </p>
+        </div>
+        <aside class="hero__contact">
+          <h2>Contact</h2>
+          <div class="toggle-group">
+            <span class="toggle-label">Thème</span>
+            <div class="toggle" role="group" aria-label="Thème">
+              <button type="button" data-theme-toggle="light">Light</button>
+              <button type="button" data-theme-toggle="dark">Dark</button>
+            </div>
+          </div>
+          <div class="toggle-group">
+            <span class="toggle-label">Densité</span>
+            <div class="toggle" role="group" aria-label="Densité">
+              <button type="button" data-density-toggle="normal">Normal</button>
+              <button type="button" data-density-toggle="compact">Compact</button>
+            </div>
+          </div>
+          <ul class="contact-list">
+            <li>
+              <svg class="icon" aria-hidden="true"><use href="#icon-user" /></svg>
+              2 rue des Cygnes, 85340 Les Sables d'Olonne
+            </li>
+            <li>
+              <svg class="icon" aria-hidden="true"><use href="#icon-location" /></svg>
+              Olonne-sur-Mer
+            </li>
+            <li>
+              <svg class="icon" aria-hidden="true"><use href="#icon-phone" /></svg>
+              06 87 28 20 60
+            </li>
+            <li>
+              <svg class="icon" aria-hidden="true"><use href="#icon-mail" /></svg>
+              guimaxali@gmail.com
+            </li>
+            <li>
+              <svg class="icon" aria-hidden="true"><use href="#icon-car" /></svg>
+              Permis B
+            </li>
+          </ul>
+        </aside>
+      </header>
+
+      <section class="grid">
+        <div class="card">
+          <h2>Profil</h2>
+          <p>
+            36 ans, basé à Olonne-sur-Mer. Spécialisé en administration systèmes
+            Linux/Windows, migrations, DevOps et automatisation d’infrastructures.
+          </p>
+          <p>
+            À l’aise avec les environnements on-premise et hébergés, avec une
+            expérience des marchés publics.
+          </p>
+        </div>
+
+        <div class="card">
+          <h2>Compétences clés</h2>
+          <ul class="tag-list">
+            <li>Linux (Debian, Linux Mint)</li>
+            <li>Windows Server / Active Directory</li>
+            <li>FreeBSD</li>
+            <li>DevOps & CI/CD</li>
+            <li>Azure DevOps, MKS</li>
+            <li>Packaging DEB/RPM</li>
+            <li>Systemd</li>
+            <li>OpenTofu, Ansible, Packer</li>
+            <li>QEMU/KVM</li>
+            <li>Zabbix</li>
+            <li>Rust</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h2>Stack visuelle</h2>
+          <div class="logo-grid">
+            <div class="logo-card">
+              <svg class="logo" aria-hidden="true"><use href="#icon-linux" /></svg>
+              <span>Linux</span>
+            </div>
+            <div class="logo-card">
+              <svg class="logo" aria-hidden="true"><use href="#icon-windows" /></svg>
+              <span>Windows</span>
+            </div>
+            <div class="logo-card">
+              <svg class="logo" aria-hidden="true"><use href="#icon-cloud" /></svg>
+              <span>Cloud & Hébergement</span>
+            </div>
+            <div class="logo-card">
+              <svg class="logo" aria-hidden="true"><use href="#icon-devops" /></svg>
+              <span>DevOps / CI-CD</span>
+            </div>
+            <div class="logo-card">
+              <svg class="logo" aria-hidden="true"><use href="#icon-automation" /></svg>
+              <span>IaC & Automatisation</span>
+            </div>
+            <div class="logo-card">
+              <svg class="logo" aria-hidden="true"><use href="#icon-server" /></svg>
+              <span>Virtualisation</span>
+            </div>
+            <div class="logo-card">
+              <svg class="logo" aria-hidden="true"><use href="#icon-code" /></svg>
+              <span>Rust & Scripting</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="card experience">
+        <h2>Expérience</h2>
+
+        <article class="role">
+          <div class="role__header">
+            <div>
+              <h3>Administrateur systèmes & réseaux</h3>
+              <p class="role__meta">INNLOG — Olonne-sur-Mer</p>
+            </div>
+            <span class="role__dates">Depuis 2022</span>
+          </div>
+          <ul>
+            <li>Administration Linux & Windows, support et exploitation au quotidien.</li>
+            <li>Migrations Active Directory (DC propre vers hébergeur).</li>
+            <li>DevOps chez OVH (MKS) et Azure DevOps, mise en place de pratiques CI/CD.</li>
+            <li>Packaging DEB/RPM, création de services systemd.</li>
+            <li>Infrastructure as Code avec OpenTofu, Ansible et Packer.</li>
+            <li>Développement Rust (vibe coding) avec un dépôt dédié.</li>
+            <li>Deux programmes internes, dont un outil d’alerting Zabbix sous Linux Mint.</li>
+          </ul>
+        </article>
+
+        <article class="role">
+          <div class="role__header">
+            <div>
+              <h3>Administrateur systèmes</h3>
+              <p class="role__meta">ANSSI / CFSSI</p>
+            </div>
+            <span class="role__dates">2020 – 2022</span>
+          </div>
+          <ul>
+            <li>Migration d’Active Directory 2008 vers 2019.</li>
+            <li>Installation et MCO/MCS de BigBlueButton (monitoring, sauvegardes).</li>
+            <li>Déploiement de machines QEMU/KVM sous Debian.</li>
+            <li>Administration et durcissement Debian.</li>
+            <li>Gestion de matériels audiovisuels (rétroprojecteurs, prise de son).</li>
+          </ul>
+        </article>
+      </section>
+
+      <section class="grid">
+        <div class="card">
+          <h2>Projets & réalisations</h2>
+          <ul>
+            <li>Outil Rust d’alerte Zabbix pour Linux Mint.</li>
+            <li>Automatisations IaC avec OpenTofu, Ansible et Packer.</li>
+            <li>Création de services systemd pour applications internes.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h2>Informations complémentaires</h2>
+          <ul>
+            <li>Permis B</li>
+            <li>Expérience des marchés publics</li>
+            <li>Disponibilité pour missions systèmes, DevOps et migrations</li>
+          </ul>
+        </div>
+      </section>
+    </main>
+    <script>
+      (function () {
+        const themeButtons = document.querySelectorAll("[data-theme-toggle]");
+        const densityButtons = document.querySelectorAll("[data-density-toggle]");
+        const storedTheme = localStorage.getItem("theme");
+        const storedDensity = localStorage.getItem("density");
+        const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+        const initialTheme = storedTheme || (prefersDark ? "dark" : "light");
+        const initialDensity = storedDensity || "normal";
+        document.body.dataset.theme = initialTheme;
+        document.body.dataset.density = initialDensity;
+        themeButtons.forEach((btn) => {
+          btn.addEventListener("click", () => {
+            const theme = btn.getAttribute("data-theme-toggle");
+            document.body.dataset.theme = theme;
+            localStorage.setItem("theme", theme);
+          });
+        });
+        densityButtons.forEach((btn) => {
+          btn.addEventListener("click", () => {
+            const density = btn.getAttribute("data-density-toggle");
+            document.body.dataset.density = density;
+            localStorage.setItem("density", density);
+          });
+        });
+      })();
+    </script>
+  </body>
+</html>
